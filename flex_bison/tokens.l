@@ -7,10 +7,6 @@
 %%
 
 [ \t]                 ;
-[a-zA-Z_][a-zA-Z0-9_]*  return TIDENTIFIER;
-[0-9]+.[0-9]*           return TFLOAT;
-[0-9]+                  return TINTEGER;
-
 
 "="                     return TEQUAL;
 "=="                    return TCNE;
@@ -43,8 +39,15 @@
 
 "print"                 return TPRINT;
 
-"\n"                    return TNEWLINE
+[a-zA-Z_][a-zA-Z0-9_]*  return TIDENTIFIER;
+[0-9]+.[0-9]*           return TFLOAT;
+[0-9]+                  return TINTEGER;
 
+"\n"                    return TNEWLINE;
 .                       printf("Unknown token!n"); yyterminate();
 
 %%
+
+int yywrap(void) {
+    return 1;
+}

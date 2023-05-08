@@ -25,7 +25,7 @@
 %token TRBRACE
 %token TDOT
 %token TCOMMA
-
+%token TCOLON
 
 %token TMINUS
 %token TPLUS
@@ -41,11 +41,14 @@
 
 %token TPRINT
 
+%token TNEWLINE
+
 %start block
 
 %%
 
-block : statement;    
+block : statement
+      | statement block;    
 
 statement : simple_statment TNEWLINE
           | compound_statement TNEWLINE
@@ -63,9 +66,9 @@ compound_statement : print_statement
 
 print_statement : TPRINT TLPAREN expression TRPAREN;
 
-if_statement : TWHILE comparison_expression TCOLON block
-             | TWHILE comparison_expression TCOLON block else_block
-             | TWHILE comparison_expression TCOLON block elif_statement
+if_statement : TIF comparison_expression TCOLON block
+             | TIF comparison_expression TCOLON block else_block
+             | TIF comparison_expression TCOLON block elif_statement
              ;
 
 elif_statement : TELIF comparison_expression TCOLON
@@ -100,9 +103,15 @@ term : factor
      | factor TDIV factor
      ;
 
+factor : TPLUS factor
+       | TMINUS factor
+       | number
+       | TLPAREN expression TRPAREN
+       | identifier
+       ;
+
 identifier : TIDENTIFIER;
 number : TINTEGER;
-float : TFLOAT;
 
 comparison_expression : compare_eq_operator
                       | compare_noteq_operator
@@ -119,7 +128,6 @@ compare_lte_operator: expression TCLE expression;
 compare_lt_operator: expression TCLT expression; 
 compare_gte_operator: expression TCGE expression; 
 compare_gt_operator: expression TCGT expression; 
-
 
 %%
 
