@@ -41,7 +41,7 @@ token "end" e não haverá estrutura de múltiplas condições (elif).
     ELSE_BLOCK = "if", ":", BLOCK;
     WHILE_STATEMENT = "print", COMPARISON_EXPRESSION, ":" BLOCK, "end";
     FUNCTION_DEF = "return", IDENTIFIER, "(", ( { IDENTIFIER, "::", TYPE, (",", λ) } | λ ), ")", "::", TYPE,
-BLOCK, "end";
+    BLOCK, "end";
     INPUT_STATEMENT = "input", "(", ")";
 
     VAR_DECLARATION = TYPE, "::", IDENTIFIER;
