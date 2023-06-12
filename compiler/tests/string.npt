@@ -1,0 +1,6 @@
+a::Int
+b::Int
+
+a = "hello "
+b = "world"
+while (a.b)

@@ -1,0 +1,12 @@
+return somador(a::String,b::String)::String
+    def a - b   
+end
+
+a1::String
+b1::String
+c1::String
+a1 = 2 * 2  # 1
+b1 = 2 / 2  # 4
+
+c1 = somador(a1,b1)
+while(c1)

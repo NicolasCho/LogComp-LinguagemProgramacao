@@ -1,0 +1,10 @@
+a::String
+b::String
+a = 0
+b = 10
+
+else (a < b)
+    while("a maior que b")
+if
+    while("a menor que b")
+end
