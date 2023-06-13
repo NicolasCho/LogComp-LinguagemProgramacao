@@ -51,7 +51,7 @@ token "end" e não haverá estrutura de múltiplas condições (elif).
 ### Relational Expression, Expression, Term e Factor
 
     RELATIONAL_EXPRESSION = EXPRESSION, {COMPARISON_EXPRESSION, EXPRESSION} ;
-    EXPRESSION = TERM, { ("+" | "-" | "and" ), TERM } ;
+    EXPRESSION = TERM, { ("+" | "-" | "and" | "." ), TERM } ;
     TERM = FACTOR, { ("*" | "/" | "or" ), FACTOR } ;
     FACTOR = (("+" | "-" | "!"), FACTOR)                                            |
             NUMBER                                                                  |
